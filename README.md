@@ -1,5 +1,5 @@
 
-srsp.oracle-java for Ansible Galaxy
+srsp.oracle-java for Ansible
 ============
 
 
