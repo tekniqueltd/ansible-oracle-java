@@ -1,10 +1,11 @@
 
-srsp.oracle-java for Ansible
+srsp.oracle-java for Ansible Galaxy
 ============
 
 
 ## Summary
 
+Role name in Ansible Galaxy: **[srsp.oracle-java](https://galaxy.ansible.com/srsp/oracle-java/)**
 
 This Ansible role has the following features for Oracle JDK:
 
