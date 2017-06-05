@@ -5,13 +5,13 @@ srsp.oracle-java for Ansible Galaxy
 
 ## Summary
 
-Role name in Ansible Galaxy: **[srsp.oracle-java](https://galaxy.ansible.com/srsp/oracle-java/)**
-
 This Ansible role has the following features for Oracle JDK:
 
- - Install JDK 7 or 8 version.
+ - Install JDK 8 in current versions.
  - Install optional Java Cryptography Extensions (JCE)
  - Install for CentOS, Debian/Ubuntu, SUSE, and Mac OS X families.
+ 
+ Please note that this role is not in Ansible Galaxy (yet).
 
 If you prefer OpenJDK, try alternatives such as [geerlingguy.java](https://galaxy.ansible.com/geerlingguy/java/) or [smola.java](https://galaxy.ansible.com/smola/java/).
 
@@ -56,6 +56,7 @@ java_install_jce: false
 For other configurable internals, read `tasks/set-role-variables.yml` file; for example, supported `java_version`/`java_subversion` combinations.
 
 If you want to install a Java release which is not supported out-of-the-box, you have to specify the corresponding Java build number in the variable `java_build` in addition to `java_version` and `java_subversion`, e.g.
+
 ```yaml
 ---
 - hosts: all
@@ -65,8 +66,9 @@ If you want to install a Java release which is not supported out-of-the-box, you
 
   vars:
     java_version: 8
-    java_subversion: 91
-    java_build: 14
+    java_subversion: 131
+    java_build: 11
+    jdk_tarball_hash: d54c1d3a095b4ff2b6607d096fa80163
 ```
 
 
