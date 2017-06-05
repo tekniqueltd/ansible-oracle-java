@@ -5,17 +5,17 @@ srsp.oracle-java for Ansible
 
 ## Summary
 
+
 This Ansible role has the following features for Oracle JDK:
 
  - Install JDK 8 in current versions.
  - Install optional Java Cryptography Extensions (JCE)
  - Install for CentOS, Debian/Ubuntu, SUSE, and Mac OS X families.
  
- Please note that this role is not in Ansible Galaxy (yet).
+This role is based on [williamyeh.oracle-java](https://github.com/William-Yeh/ansible-oracle-java), but I wanted more recent Java versions and decided to drop support for older versions.
 
 If you prefer OpenJDK, try alternatives such as [geerlingguy.java](https://galaxy.ansible.com/geerlingguy/java/) or [smola.java](https://galaxy.ansible.com/smola/java/).
 
-This role is based on [williamyeh.oracle-java](https://github.com/William-Yeh/ansible-oracle-java)
 
 ## Role Variables
 
