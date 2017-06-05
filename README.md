@@ -1,12 +1,11 @@
 
-williamyeh.oracle-java for Ansible Galaxy
+srsp.oracle-java for Ansible Galaxy
 ============
 
-[![Build Status](https://travis-ci.org/William-Yeh/ansible-oracle-java.svg?branch=master)](https://travis-ci.org/William-Yeh/ansible-oracle-java) [![Circle CI](https://circleci.com/gh/William-Yeh/ansible-oracle-java.svg?style=shield)](https://circleci.com/gh/William-Yeh/ansible-oracle-java)
 
 ## Summary
 
-Role name in Ansible Galaxy: **[williamyeh.oracle-java](https://galaxy.ansible.com/williamyeh/oracle-java/)**
+Role name in Ansible Galaxy: **[srsp.oracle-java](https://galaxy.ansible.com/srsp/oracle-java/)**
 
 This Ansible role has the following features for Oracle JDK:
 
@@ -16,6 +15,7 @@ This Ansible role has the following features for Oracle JDK:
 
 If you prefer OpenJDK, try alternatives such as [geerlingguy.java](https://galaxy.ansible.com/geerlingguy/java/) or [smola.java](https://galaxy.ansible.com/smola/java/).
 
+This role is based on [williamyeh.oracle-java](https://github.com/William-Yeh/ansible-oracle-java)
 
 ## Role Variables
 
@@ -33,7 +33,7 @@ User-configurable defaults:
 java_version: 8
 
 # which subversion?
-java_subversion: 112
+java_subversion: 131
 
 # which directory to put the download file?
 java_download_path: /tmp
@@ -61,7 +61,7 @@ If you want to install a Java release which is not supported out-of-the-box, you
 - hosts: all
 
   roles:
-    - williamyeh.oracle-java
+    - srsp.oracle-java
 
   vars:
     java_version: 8
@@ -97,7 +97,7 @@ jdk_tarball_file
 
 ### Step 1: add role
 
-Add role name `williamyeh.oracle-java` to your playbook file.
+Add role name `srsp.oracle-java` to your playbook file.
 
 
 ### Step 2: add variables
@@ -113,7 +113,7 @@ Simple example:
 - hosts: all
 
   roles:
-    - williamyeh.oracle-java
+    - srsp.oracle-java
 
   vars:
     java_version: 8
@@ -133,7 +133,7 @@ To do this, put the file on the `{{ playbook_dir }}/files` directory in advance,
 - hosts: all
 
   roles:
-    - williamyeh.oracle-java
+    - srsp.oracle-java
 
   vars:
     java_version: 8
@@ -152,7 +152,3 @@ To do this, put the file on the `{{ playbook_dir }}/files` directory in advance,
 
 Licensed under the Apache License V2.0. See the [LICENSE file](LICENSE) for details.
 
-
-## History
-
-Rewritten from my pre-Galaxy version: [server-config-template](https://github.com/William-Yeh/server-config-template).
