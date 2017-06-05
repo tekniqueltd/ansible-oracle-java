@@ -31,90 +31,32 @@
 #
 # version-specific variables
 #
+
+- name: set internal vars for 1.8.0_131
+  set_fact:
+    jdk_version_detail: "{{ java_version }}u{{ java_subversion }}-b11"
+    jdk_tarball_hash: d54c1d3a095b4ff2b6607d096fa80163
+  when: java_version == 8 and java_subversion == 131
+
+- name: set internal vars for 1.8.0_121
+  set_fact:
+    jdk_version_detail: "{{ java_version }}u{{ java_subversion }}-b13"
+    jdk_tarball_hash: e9e7ea248e2c4826b92b3f075a80e441
+  when: java_version == 8 and java_subversion == 121
+
 - name: set internal vars for 1.8.0_112
   set_fact:
     jdk_version_detail: "{{ java_version }}u{{ java_subversion }}-b15"
+    jdk_tarball_hash:
   when: java_version == 8 and java_subversion == 112
 
 - name: set internal vars for 1.8.0_111
   set_fact:
     jdk_version_detail: "{{ java_version }}u{{ java_subversion }}-b14"
+    jdk_tarball_hash:
   when: java_version == 8 and java_subversion == 111
 
-- name: set internal vars for 1.8.0_102
-  set_fact:
-    jdk_version_detail: "{{ java_version }}u{{ java_subversion }}-b14"
-  when: java_version == 8 and java_subversion == 102
 
-- name: set internal vars for 1.8.0_101
-  set_fact:
-    jdk_version_detail: "{{ java_version }}u{{ java_subversion }}-b13"
-  when: java_version == 8 and java_subversion == 101
-
-- name: set internal vars for 1.8.0_92 or 1.8.0_91
-  set_fact:
-    jdk_version_detail: "{{ java_version }}u{{ java_subversion }}-b14"
-  when: java_version == 8 and (java_subversion == 92 or java_subversion == 91)
-
-- name: set internal vars for 1.8.0_77
-  set_fact:
-    jdk_version_detail: "{{ java_version }}u{{ java_subversion }}-b03"
-  when: java_version == 8 and java_subversion == 77
-
-- name: set internal vars for 1.8.0_74
-  set_fact:
-    jdk_version_detail: "{{ java_version }}u{{ java_subversion }}-b02"
-  when: java_version == 8 and java_subversion == 74
-
-- name: set internal vars for 1.8.0_73
-  set_fact:
-    jdk_version_detail: "{{ java_version }}u{{ java_subversion }}-b02"
-  when: java_version == 8 and java_subversion == 73
-
-- name: set internal vars for 1.8.0_72
-  set_fact:
-    jdk_version_detail: "{{ java_version }}u{{ java_subversion }}-b15"
-  when: java_version == 8 and java_subversion == 72
-
-- name: set internal vars for 1.8.0_66
-  set_fact:
-    jdk_version_detail: "{{ java_version }}u{{ java_subversion }}-b17"
-  when: java_version == 8 and java_subversion == 66
-
-- name: set internal vars for 1.8.0_65
-  set_fact:
-    jdk_version_detail: "{{ java_version }}u{{ java_subversion }}-b17"
-  when: java_version == 8 and java_subversion == 65
-
-- name: set internal vars for 1.8.0_60
-  set_fact:
-    jdk_version_detail: "{{ java_version }}u{{ java_subversion }}-b27"
-  when: java_version == 8 and java_subversion == 60
-
-- name: set internal vars for 1.8.0_51
-  set_fact:
-    jdk_version_detail: "{{ java_version }}u{{ java_subversion }}-b16"
-  when: java_version == 8 and java_subversion == 51
-
-- name: set internal vars for 1.8.0_45
-  set_fact:
-    jdk_version_detail: "{{ java_version }}u{{ java_subversion }}-b14"
-  when: java_version == 8 and java_subversion == 45
-
-- name: set internal vars for 1.8.0_31
-  set_fact:
-    jdk_version_detail: "{{ java_version }}u{{ java_subversion }}-b13"
-  when: java_version == 8 and java_subversion == 31
-
-- name: set internal vars for 1.7.0_80
-  set_fact:
-    jdk_version_detail: "{{ java_version }}u{{ java_subversion }}-b15"
-  when: java_version == 7 and java_subversion == 80
-
-- name: set internal vars for 1.7.0_75
-  set_fact:
-    jdk_version_detail: "{{ java_version }}u{{ java_subversion }}-b13"
-  when: java_version == 7 and java_subversion == 75
 
 - name: set internal vars for generic Java version
   set_fact:
@@ -130,18 +72,18 @@
 - name: compose url for downloading file, if necessary
   set_fact:
     jdk_tarball_url:  "http://download.oracle.com/otn-pub/java/jdk/{{ jdk_version_detail }}/{{ jdk_tarball_file }}"
-  when: jdk_version_detail is defined
+  when: jdk_version_detail is defined and jdk_tarball_hash is not defined
+
+
+- name: compose url for downloading file, if necessary
+  set_fact:
+    jdk_tarball_url: "http://download.oracle.com/otn-pub/java/jdk/{{ jdk_version_detail }}/{{ jdk_tarball_hash }}/{{ jdk_tarball_file }}"
+  when: jdk_version_detail is defined and jdk_tarball_hash is defined
 
 
 #
 # JCE variables
 #
-
-- name: set JCE variables for java 7
-  set_fact:
-    jce_zip_file:   "UnlimitedJCEPolicyJDK{{ java_version }}.zip"
-    jce_zip_folder: "UnlimitedJCEPolicy"
-  when: java_version == 7
 
 - name: set JCE variables for java 8
   set_fact:

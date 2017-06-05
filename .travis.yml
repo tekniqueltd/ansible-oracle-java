@@ -12,6 +12,6 @@ before_install:
 script:
     - test/travis/script.sh
 
-notifications:
-    webhooks: https://galaxy.ansible.com/api/v1/notifications/
+#notifications:
+#    webhooks: https://galaxy.ansible.com/api/v1/notifications/
 
