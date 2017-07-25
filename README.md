@@ -34,7 +34,7 @@ User-configurable defaults:
 java_version: 8
 
 # which subversion?
-java_subversion: 131
+java_subversion: 141
 
 # which directory to put the download file?
 java_download_path: /tmp
@@ -67,9 +67,9 @@ If you want to install a Java release which is not supported out-of-the-box, you
 
   vars:
     java_version: 8
-    java_subversion: 131
-    java_build: 11
-    jdk_tarball_hash: d54c1d3a095b4ff2b6607d096fa80163
+    java_subversion: 141
+    java_build: 15
+    jdk_tarball_hash: 336fa29ff2bb4ef291e347e091f7f4a7
 ```
 
 
