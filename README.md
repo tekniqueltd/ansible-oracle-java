@@ -123,9 +123,9 @@ Simple example:
 ```
 
 
-### (Optionally) pre-fetch .rpm and .tar.gz files
+### (Optionally) pre-fetch .rpm, .tar.gz or .dmg files
 
-For some reasons, you may want to pre-fetch .rpm and .tar.gz files *before the execution of this role*, instead of downloading from Oracle on-the-fly.
+For some reasons, you may want to pre-fetch .rpm, .tar.gz or .dmg files *before the execution of this role*, instead of downloading from Oracle on-the-fly.
 
 To do this, put the file on the `{{ playbook_dir }}/files` directory in advance, and then set the `java_download_from_oracle` variable to `false`:
 

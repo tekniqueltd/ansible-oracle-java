@@ -20,7 +20,13 @@
       copy:
         src: "{{ playbook_dir }}/files/{{ jdk_tarball_file }}.tar.gz"
         dest: "{{ java_download_path }}/{{ jdk_tarball_file }}.tar.gz"
-      when: ansible_pkg_mgr != "yum" and ansible_pkg_mgr != "zypper"
+      when: ansible_pkg_mgr != "yum" and ansible_pkg_mgr != "zypper" and ansible_os_family != "Darwin"
+
+    - name: copy .dmg from local
+      copy:
+        src: "{{ playbook_dir }}/files/{{ jdk_tarball_file }}.dmg"
+        dest: "{{ java_download_path }}/{{ jdk_tarball_file }}.dmg"
+      when: ansible_pkg_mgr != "yum" and ansible_pkg_mgr != "zypper" and ansible_os_family == "Darwin"
 
   when: not java_download_from_oracle
 
