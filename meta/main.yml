@@ -40,5 +40,6 @@ galaxy_info:
         - java
         - jdk
         - jvm
+        - jce
 
 dependencies: []
