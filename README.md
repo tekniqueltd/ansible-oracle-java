@@ -2,6 +2,7 @@
 srsp.oracle-java for Ansible Galaxy
 ============
 
+[![Build Status](https://travis-ci.org/srsp/ansible-oracle-java.svg?branch=master)](https://travis-ci.org/srsp/ansible-oracle-java) 
 
 ## Summary
 
@@ -22,7 +23,7 @@ If you prefer OpenJDK, try alternatives such as [geerlingguy.java](https://galax
 
 ### Mandatory variables
 
-None.
+None
 
 ### Optional variables
 
