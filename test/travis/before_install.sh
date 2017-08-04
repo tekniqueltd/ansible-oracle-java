@@ -14,13 +14,6 @@ case "$TRAVIS_OS_NAME" in
     docker run    -v $(pwd):/data  java_prefetch_tarball
     sed -i -e 's/^\(java_download_from_oracle:\).*$/\1 false/'  defaults/main.yml
 
-    echo "==> Building test cases..."
-    docker build  -f test/Dockerfile-ubuntu14.04  -t java_trusty   .
-    docker build  -f test/Dockerfile-ubuntu12.04  -t java_precise  .
-    docker build  -f test/Dockerfile-debian8      -t java_jessie   .
-    docker build  -f test/Dockerfile-debian7      -t java_wheezy   .
-    docker build  -f test/Dockerfile-centos7      -t java_centos7  .
-    docker build  -f test/Dockerfile-centos6      -t java_centos6  .
   ;;
   osx)
     echo "==> Installing Ansible using pip on Mac OS X"

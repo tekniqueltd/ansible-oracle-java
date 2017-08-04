@@ -1,10 +1,40 @@
 sudo: true
-os:
-    - linux
-    - osx
 
 services:
     - docker
+
+
+matrix:
+  include:
+
+  - os: linux
+    env: LINUX=ubuntu16.04
+
+  - os: linux
+    env: LINUX=ubuntu14.04
+
+  - os: linux
+    env: LINUX=ubuntu12.04
+
+#  - os: linux
+#    env: LINUX=debian9
+
+  - os: linux
+    env: LINUX=debian8
+
+  - os: linux
+    env: LINUX=debian7
+
+  - os: linux
+    env: LINUX=centos7
+
+  - os: linux
+    env: LINUX=centos6
+
+  - os: osx
+    env: LINUX=OSX
+
+
 
 before_install:
     - test/travis/before_install.sh
@@ -14,4 +44,3 @@ script:
 
 #notifications:
 #    webhooks: https://galaxy.ansible.com/api/v1/notifications/
-
