@@ -1,45 +1,36 @@
----
-
 galaxy_info:
-    author: srsp
-    description: Oracle JDK 8 for CentOS/Debian/Ubuntu/Suse/MacOSX
-    license: Apache
+  role_name: oracle-java
+  author: nhbond
+  description: Role to install Oracle Java 8
+  company: Teknique Ltd.
 
-    min_ansible_version: 2.0.0
+  license: MIT
 
-    platforms:
-        - name: Ubuntu
-          versions:
-              - precise
-              - trusty
-              - xenial
-              - yakkety
-              - zesty
-        - name: Debian
-          versions:
-              - wheezy
-              - jessie
-              - stretch
-        - name: EL
-          versions:
-              - 6
-              - 7
-        - name: opensuse
-          versions:
-              - all
-        - name: SLES
-          versions:
-              - all
-        - name: Darwin
-          versions:
-              - all
+  min_ansible_version: 2.4
 
-    galaxy_tags:
-        - development
-        - system
-        - java
-        - jdk
-        - jvm
-        - jce
+  platforms:
+      - name: Ubuntu
+        versions:
+            - precise
+            - trusty
+            - xenial
+            - yakkety
+            - zesty
+      - name: Debian
+        versions:
+            - wheezy
+            - jessie
+            - stretch
+
+  galaxy_tags:
+      - java
+      - oracle
+      - development
+      - system
+      - jdk
+      - jre
+      - jvm
+      - teknique
+      - java8
 
 dependencies: []
